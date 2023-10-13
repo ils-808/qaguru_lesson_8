@@ -30,7 +30,7 @@ class Product:
             Если продуктов не хватает, то выбросите исключение ValueError
         """
         if self.check_quantity(quantity):
-            self.quantity += quantity
+            self.quantity -= quantity
         else:
             raise ValueError
 
@@ -106,5 +106,6 @@ class Cart:
                 #невозможно купить
                 raise ValueError
             else:
+                product.buy(product.quantity)
                 self.remove_product(product)
                 #возможно купить

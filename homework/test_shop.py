@@ -16,7 +16,7 @@ class TestProducts:
     def test_product_buy(self, product):
         # TODO напишите проверки на метод buy
         product.buy(10)
-        assert 1010 == product.quantity
+        assert 990 == product.quantity
 
     def test_product_buy_more_than_available(self, product):
         # TODO напишите проверки на метод buy,
