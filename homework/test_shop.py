@@ -62,6 +62,17 @@ class TestCart:
         cart.remove_product(iphone, iphone.quantity)
         assert len(cart.products) == 0
 
+    def test_del_same_amount_from_cart(self, cart, iphone):
+        cart.add_product(iphone, 2)
+        cart.remove_product(iphone, 2)
+        assert len(cart.products) == 0
+
+    def test_del_less_amount_from_cart(self, cart, iphone):
+        cart.add_product(iphone, 2)
+        cart.remove_product(iphone, 1)
+        assert len(cart.products) == 1
+        assert cart.products[iphone] == 1
+
     def test_decrease_amount_of_item_in_cart(self, cart, iphone):
         cart.add_product(iphone, 2)
         cart.remove_product(iphone, 1)
